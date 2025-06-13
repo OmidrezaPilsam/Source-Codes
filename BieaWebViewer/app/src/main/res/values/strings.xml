@@ -1,0 +1,4 @@
+<resources>
+    <string name="app_name">BieaWebViewer</string>
+    <string name="refresh_button_text">Refresh</string>
+</resources>
