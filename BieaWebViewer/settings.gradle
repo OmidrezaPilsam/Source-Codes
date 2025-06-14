@@ -1,0 +1,3 @@
+// Include modules here
+include ':app'
+rootProject.name = "BieaWebViewer"

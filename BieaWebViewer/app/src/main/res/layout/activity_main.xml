@@ -1,0 +1,53 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- Root ConstraintLayout for the main activity screen.
+     Provides a flexible way to position UI elements. -->
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/root_constraint_layout"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".MainActivity">
+
+    <!-- WebView is used to display web content.
+         It fills most of the screen, constrained to the parent on top, start, and end,
+         and to the top of the refreshButton at the bottom.
+         Initially hidden (visibility="gone") until a page starts loading successfully. -->
+    <WebView
+        android:id="@+id/webView"
+        android:layout_width="0dp" /* 0dp with constraints means match_constraint */
+        android:layout_height="0dp" /* 0dp with constraints means match_constraint */
+        android:visibility="gone" /* Initially hidden, shown when page content is ready */
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintBottom_toTopOf="@+id/refreshButton"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        android:layout_marginBottom="8dp" /* Margin between WebView and Refresh button */ />
+
+    <!-- ProgressBar is shown during page load or when an operation is in progress.
+         It's centered within the parent layout.
+         Initially visible (visibility="visible") and hidden when content loads or an error occurs. -->
+    <ProgressBar
+        android:id="@+id/progressBar"
+        style="?android:attr/progressBarStyleLarge" /* Uses a large predefined spinner style */
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:visibility="visible" /* Initially visible, hidden when loading completes or fails */
+        app:layout_constraintTop_toTopOf="parent" /* Centered vertically */
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintStart_toStartOf="parent" /* Centered horizontally */
+        app:layout_constraintEnd_toEndOf="parent" />
+
+    <!-- Button to allow the user to manually refresh the WebView content.
+         Positioned at the bottom of the screen, centered horizontally. -->
+    <Button
+        android:id="@+id/refreshButton"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/refresh_button_text" /* Text defined in strings.xml */
+        app:layout_constraintBottom_toBottomOf="parent" /* Anchored to the bottom of the parent */
+        app:layout_constraintStart_toStartOf="parent" /* Centered horizontally */
+        app:layout_constraintEnd_toEndOf="parent"
+        android:layout_marginBottom="16dp" /* Margin from the bottom edge */ />
+
+</androidx.constraintlayout.widget.ConstraintLayout>
